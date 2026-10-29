@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# Jupyter
+.ipynb_checkpoints
+
+# Datasets & Weights
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.h5
+# Keep models folder structure
+models/*
+!models/.gitkeep
+!models/digit_cnn.keras
+!models/math_cnn.keras
+
+# Streamlit
+.streamlit/
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+*.log
