@@ -25,6 +25,7 @@ def get_canvas_config(mode: str = "digit") -> Dict[str, Any]:
             "height": 280,
             "width": 280,
             "drawing_mode": "freedraw",
+            "return_image_data": True,
             "key": "digit_canvas",
         }
     else:
@@ -36,6 +37,7 @@ def get_canvas_config(mode: str = "digit") -> Dict[str, Any]:
             "height": 240,
             "width": 560,
             "drawing_mode": "freedraw",
+            "return_image_data": True,
             "key": "math_canvas",
         }
 

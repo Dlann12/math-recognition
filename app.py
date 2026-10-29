@@ -188,6 +188,7 @@ if page == "1. Digit Recognition":
                 height=280,
                 width=280,
                 drawing_mode="freedraw",
+                return_image_data=True,
                 key=f"digit_canvas_{st.session_state.canvas_key_digit}",
             )
 
@@ -199,8 +200,12 @@ if page == "1. Digit Recognition":
                     st.session_state.canvas_key_digit += 1
                     st.rerun()
 
-            if canvas_result.image_data is not None:
-                image_to_predict = canvas_result.image_data
+            if canvas_result is not None:
+                try:
+                    if canvas_result.image_data is not None:
+                        image_to_predict = canvas_result.image_data
+                except Exception:
+                    image_to_predict = None
 
         else:
             uploaded_file = st.file_uploader(
@@ -413,6 +418,7 @@ elif page == "3. Math Recognition":
             height=220,
             width=650,
             drawing_mode="freedraw",
+            return_image_data=True,
             key=f"math_canvas_{st.session_state.canvas_key_math}",
         )
 
@@ -426,8 +432,12 @@ elif page == "3. Math Recognition":
                     del st.session_state["recognized_expr"]
                 st.rerun()
 
-        if math_canvas_res.image_data is not None:
-            math_image = math_canvas_res.image_data
+        if math_canvas_res is not None:
+            try:
+                if math_canvas_res.image_data is not None:
+                    math_image = math_canvas_res.image_data
+            except Exception:
+                math_image = None
 
     else:
         uploaded_math = st.file_uploader("Pilih gambar ekspresi matematika:", type=["png", "jpg", "jpeg"], key="math_upload")
